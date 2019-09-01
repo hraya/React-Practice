@@ -1,6 +1,8 @@
-import React from 'react';
+import React from "react";
 
 const Details = () => {
-    return (
+  return <h1>hi lol</h1>;
+};
 
-    )
+
+export default Details;
