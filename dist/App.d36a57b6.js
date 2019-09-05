@@ -35148,8 +35148,8 @@ var _react = _interopRequireDefault(require("react"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-const Details = () => {
-  return _react.default.createElement("h1", null, "hi lol");
+const Details = props => {
+  return _react.default.createElement("pre", null, _react.default.createElement("code", null, JSON.stringify(props, null, 4)));
 };
 
 var _default = Details;
@@ -35170,9 +35170,9 @@ var _Details = _interopRequireDefault(require("./Details"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 const App = () => {
-  return _react.default.createElement(_react.default.StrictMode, null, _react.default.createElement("div", null, _react.default.createElement("h1", {
-    id: "something-important"
-  }, "Adopt Me!"), _react.default.createElement(_router.Router, null, _react.default.createElement(_SearchParams.default, {
+  return _react.default.createElement(_react.default.StrictMode, null, _react.default.createElement("div", null, _react.default.createElement("header", null, _react.default.createElement(_router.Link, {
+    to: "/"
+  }, "Adopt Me!")), _react.default.createElement(_router.Router, null, _react.default.createElement(_SearchParams.default, {
     path: "/"
   }), _react.default.createElement(_Details.default, {
     path: "/details/:id"
@@ -35208,7 +35208,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49339" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50290" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
