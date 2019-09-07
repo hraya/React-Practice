@@ -35146,15 +35146,36 @@ exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
+var _pet = _interopRequireDefault(require("@frontendmasters/pet"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-const Details = props => {
-  return _react.default.createElement("pre", null, _react.default.createElement("code", null, JSON.stringify(props, null, 4)));
-};
+class Details extends _react.default.Component {
+  constructor(props) {
+    super(props);
+  }
 
+  componentDidMount() {
+    _pet.default.animal(this.props.id).then((_ref) => {
+      let animal = _ref.animal;
+      this.setState({
+        name: animal.name,
+        animal: animal.type,
+        location: `${animal.contact.address.city}, ${animal.contact.address.state}`
+      });
+    });
+  }
+
+  render() {
+    return _react.default.createElement("div", null);
+  }
+
+}
+
+;
 var _default = Details;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js"}],"App.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","@frontendmasters/pet":"../node_modules/@frontendmasters/pet/index.js"}],"App.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
