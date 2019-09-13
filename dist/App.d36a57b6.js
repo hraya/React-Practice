@@ -35346,10 +35346,23 @@ class Details extends _react.default.Component {
 function DetailsWithErrorBoundary(props) {
   return _react.default.createElement(_ErrorBoundary.default, null, _react.default.createElement(Details, props));
 }
-},{"react":"../node_modules/react/index.js","@frontendmasters/pet":"../node_modules/@frontendmasters/pet/index.js","./Carousel":"Carousel.js","./ErrorBoundary":"ErrorBoundary.js"}],"App.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","@frontendmasters/pet":"../node_modules/@frontendmasters/pet/index.js","./Carousel":"Carousel.js","./ErrorBoundary":"ErrorBoundary.js"}],"ThemeContext.js":[function(require,module,exports) {
 "use strict";
 
-var _react = _interopRequireDefault(require("react"));
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = require("react");
+
+const ThemeContext = (0, _react.createContext)(["green", () => {}]);
+var _default = ThemeContext;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js"}],"App.js":[function(require,module,exports) {
+"use strict";
+
+var _react = _interopRequireWildcard(require("react"));
 
 var _reactDom = require("react-dom");
 
@@ -35359,20 +35372,29 @@ var _SearchParams = _interopRequireDefault(require("./SearchParams"));
 
 var _Details = _interopRequireDefault(require("./Details"));
 
+var _ThemeContext = _interopRequireDefault(require("./ThemeContext"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; if (obj != null) { var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
 const App = () => {
-  return _react.default.createElement(_react.default.StrictMode, null, _react.default.createElement("div", null, _react.default.createElement("header", null, _react.default.createElement(_router.Link, {
+  const themeHook = (0, _react.useState)("darkblue");
+  return _react.default.createElement(_react.default.StrictMode, null, _react.default.createElement(_ThemeContext.default.Provider, {
+    value: themeHook
+  }, _react.default.createElement("div", null, _react.default.createElement("header", null, _react.default.createElement(_router.Link, {
     to: "/"
   }, "Adopt Me!")), _react.default.createElement(_router.Router, null, _react.default.createElement(_SearchParams.default, {
     path: "/"
   }), _react.default.createElement(_Details.default, {
     path: "/details/:id"
-  }))));
+  })))));
 };
 
 (0, _reactDom.render)(_react.default.createElement(App, null), document.getElementById("root"));
-},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","@reach/router":"../node_modules/@reach/router/es/index.js","./SearchParams":"SearchParams.js","./Details":"Details.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","@reach/router":"../node_modules/@reach/router/es/index.js","./SearchParams":"SearchParams.js","./Details":"Details.js","./ThemeContext":"ThemeContext.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
