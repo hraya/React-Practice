@@ -35035,6 +35035,19 @@ const useDropdown = (label, defaultState, options) => {
 
 var _default = useDropdown;
 exports.default = _default;
+},{"react":"../node_modules/react/index.js"}],"ThemeContext.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = require("react");
+
+const ThemeContext = (0, _react.createContext)(["green", () => {}]);
+var _default = ThemeContext;
+exports.default = _default;
 },{"react":"../node_modules/react/index.js"}],"SearchParams.js":[function(require,module,exports) {
 "use strict";
 
@@ -35050,6 +35063,8 @@ var _pet = _interopRequireWildcard(require("@frontendmasters/pet"));
 var _Results = _interopRequireDefault(require("./Results"));
 
 var _useDropdown5 = _interopRequireDefault(require("./useDropdown"));
+
+var _ThemeContext = _interopRequireDefault(require("./ThemeContext"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -35092,6 +35107,10 @@ const SearchParams = () => {
         pets = _useState6[0],
         setPets = _useState6[1];
 
+  const _useContext = (0, _react.useContext)(_ThemeContext.default),
+        _useContext2 = _slicedToArray(_useContext, 1),
+        theme = _useContext2[0];
+
   async function requestPets() {
     const _ref = await _pet.default.animals({
       location,
@@ -35103,7 +35122,6 @@ const SearchParams = () => {
     setPets(animals || []);
   }
 
-  ;
   (0, _react.useEffect)(() => {
     setBreeds([]);
     setBreed("");
@@ -35132,6 +35150,9 @@ const SearchParams = () => {
     placeholder: "location",
     onChange: e => setLocation(e.target.value)
   })), _react.default.createElement(AnimalDropdown, null), _react.default.createElement(BreedDropdown, null), _react.default.createElement("button", {
+    style: {
+      backgroundColor: theme
+    },
     type: "submit"
   }, "Submit")), _react.default.createElement(_Results.default, {
     pets: pets
@@ -35140,7 +35161,7 @@ const SearchParams = () => {
 
 var _default = SearchParams;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","@frontendmasters/pet":"../node_modules/@frontendmasters/pet/index.js","./Results":"Results.js","./useDropdown":"useDropdown.js"}],"Carousel.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","@frontendmasters/pet":"../node_modules/@frontendmasters/pet/index.js","./Results":"Results.js","./useDropdown":"useDropdown.js","./ThemeContext":"ThemeContext.js"}],"Carousel.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -35346,20 +35367,7 @@ class Details extends _react.default.Component {
 function DetailsWithErrorBoundary(props) {
   return _react.default.createElement(_ErrorBoundary.default, null, _react.default.createElement(Details, props));
 }
-},{"react":"../node_modules/react/index.js","@frontendmasters/pet":"../node_modules/@frontendmasters/pet/index.js","./Carousel":"Carousel.js","./ErrorBoundary":"ErrorBoundary.js"}],"ThemeContext.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _react = require("react");
-
-const ThemeContext = (0, _react.createContext)(["green", () => {}]);
-var _default = ThemeContext;
-exports.default = _default;
-},{"react":"../node_modules/react/index.js"}],"App.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","@frontendmasters/pet":"../node_modules/@frontendmasters/pet/index.js","./Carousel":"Carousel.js","./ErrorBoundary":"ErrorBoundary.js"}],"App.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireWildcard(require("react"));
@@ -35422,7 +35430,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51056" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49449" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
