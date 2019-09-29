@@ -31,7 +31,7 @@ const NavBar = () => (
     <span
       css={css`
         display: inline-block;
-        animation: 1s ${Spin} linear infinite;
+        /* animation: 1s ${Spin} linear infinite; */
         font-size: 60px;
       `}
       aria-label="logo"

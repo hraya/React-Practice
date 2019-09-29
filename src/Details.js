@@ -1,10 +1,11 @@
-import React from "react";
+import React, { lazy } from "react";
 import pet from "@frontendmasters/pet";
 import { navigate } from "@reach/router";
-import Modal from "./Modal";
 import Carousel from "./Carousel";
 import ErrorBoundary from "./ErrorBoundary";
 import ThemeContext from "./ThemeContext";
+
+const Modal = lazy(() => import("./Modal"));
 
 class Details extends React.Component {
   state = { loading: true, showModal: false };
@@ -49,7 +50,10 @@ class Details extends React.Component {
           <h2>{`${animal} - ${breed} - ${location}`}</h2>
           <ThemeContext.Consumer>
             {themeHook => (
-              <button onClick={this.toggleModal} style={{ backgroundColor: themeHook[0] }}>
+              <button
+                onClick={this.toggleModal}
+                style={{ backgroundColor: themeHook[0] }}
+              >
                 Adopt {name}
               </button>
             )}
