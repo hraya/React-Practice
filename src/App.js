@@ -4,6 +4,7 @@ import { Router, Link } from "@reach/router";
 import ThemeContext from "./ThemeContext";
 // import NavBar from "./NavBar";
 
+
 const Details= lazy (() => import('./Details'));
 const SearchParams= lazy (() => import('./SearchParams')); 
 
